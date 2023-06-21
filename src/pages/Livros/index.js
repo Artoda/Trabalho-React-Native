@@ -1,22 +1,43 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
 const SelectedLivro = ({ route }) => {
   const selectedLivroData = route.params.selectedLivroObj;
   return (
-    <View>
-      <Text>{selectedLivroData.nomeLivro}</Text>
-      <Image
-        style={styles.book}
-        source={{ uri: `data:image/png;base64,${selectedLivroData.img}` }}
-      />
+    <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.bookContainer}>
+          <Image
+            style={styles.book}
+            source={{ uri: `data:image/png;base64,${selectedLivroData.img}` }}
+          />
+          <Text style={styles.bookTitle}>{selectedLivroData.nomeLivro}</Text>
+          <Text>{route.params.selectedLivroObj.autorDTO.nomeAutor}</Text>
+          <Text>{route.params.selectedLivroObj.editoraDTO.nomeEditora}</Text>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "pink",
+  },
+
+  bookContainer: {
+    alignItems: "center",
+    marginTop: 40,
+    gap: 5,
+  },
   book: {
-    height: 250,
-    width: 170,
+    height: 500,
+    width: 340,
+  },
+
+  bookTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
 
