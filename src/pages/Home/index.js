@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar } from "react-native";
+import { ScrollView } from "react-native";
 import {
   FlatList,
   Image,
@@ -22,7 +22,7 @@ const Home = () => {
     <TouchableOpacity
       style={styles.categorieContainer}
       onPress={() => {
-        navigation.navigate("SelectedEditora", {
+        navigation.navigate("Editora", {
           selectedEditoraObj: item,
         });
       }}
@@ -38,7 +38,7 @@ const Home = () => {
     <TouchableOpacity
       style={styles.categorieContainer}
       onPress={() => {
-        navigation.navigate("SelectedLivro", {
+        navigation.navigate("Livro", {
           selectedLivroObj: item,
         });
       }}
@@ -85,17 +85,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
       <ScrollView>
-        <View style={styles.header}>
-          <Image
-            style={styles.menu}
-            source={{
-              uri: "https://images-ext-1.discordapp.net/external/XXDkY2nekakmx8txvBc0NF5iNSvbq_VQpKANbYgHrtE/https/cdn.icon-icons.com/icons2/1875/PNG/512/hamburgermenu_120234.png",
-            }}
-          />
-          <Text style={styles.title}>Livraria</Text>
-        </View>
         <Text style={styles.editorasTitle}>Editoras:</Text>
 
         <FlatList
@@ -146,14 +136,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFA6C9",
   },
 
-  flatList: {
-    flexGrow: 0,
-  },
-
   menu: {
     marginLeft: 15,
     width: 35,
     height: 35,
+  },
+
+  flatList: {
+    flexGrow: 0,
   },
 
   title: {
@@ -163,8 +153,8 @@ const styles = StyleSheet.create({
     color: "magenta",
   },
 
-  editoras: {
-    alignItems: "center",
+  categorieContainer: {
+    padding: 10,
   },
 
   editorasTitle: {
@@ -175,10 +165,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
-  categorieContainer: {
-    padding: 10,
-  },
-
   categorie: {
     backgroundColor: "purple",
     borderRadius: 5,
@@ -187,18 +173,16 @@ const styles = StyleSheet.create({
     height: 130,
   },
 
-  descricao: {
-    fontWeight: "bold",
+  book: {
+    height: 250,
+    width: 170,
   },
 
   detaqueContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  destaque: {
-    fontSize: 24,
+    marginBottom: 10,
   },
 
   destaques: {
@@ -206,14 +190,8 @@ const styles = StyleSheet.create({
     width: 300,
   },
 
-  book: {
-    height: 250,
-    width: 170,
-  },
-
-  titulo: {
-    fontWeight: "bold",
-    width: 190,
+  destaque: {
+    fontSize: 24,
   },
 });
 

@@ -18,8 +18,8 @@ const App = () => {
         <Stack.Navigator>
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="SelectedLivro" component={SelectedLivro} />
-          <Stack.Screen name="SelectedEditora" component={SelectedEditora} />
+          <Stack.Screen name="Livro" component={SelectedLivro} />
+          <Stack.Screen name="Editora" component={SelectedEditora} />
         </Stack.Navigator>
       </NavigationContainer>
     </DataProvider>

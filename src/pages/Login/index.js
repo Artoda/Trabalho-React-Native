@@ -49,6 +49,7 @@ const Login = ({ navigation }) => {
         style={styles.input}
         placeholder="Senha"
         onChangeText={setSenha}
+        secureTextEntry={true}
         value={senha}
       ></TextInput>
       <TouchableOpacity style={styles.button} onPress={() => handleLogin()}>
@@ -60,12 +61,10 @@ const Login = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
+    flex: 1,
     backgroundColor: "pink",
     alignItems: "center",
     justifyContent: "center",
-    width: "100%",
-    height: "100%",
   },
 
   title: {

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#DA70D6",
+    backgroundColor: "pink",
   },
 
   tituloEditora: {
@@ -54,6 +54,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 15,
     marginTop: 5,
+    textAlign: "center",
+    width: 150,
   },
 });
 
