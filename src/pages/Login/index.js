@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  StatusBar,
-} from "react-native";
+import { StyleSheet, Text, View, TextInput, StatusBar } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { useState, useContext } from "react";
 import AxiosInstance from "../../api/AxiosInstance";

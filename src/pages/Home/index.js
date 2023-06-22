@@ -20,6 +20,7 @@ const Home = () => {
 
   const Editora = ({ item }) => (
     <TouchableOpacity
+      activeOpacity={0.5}
       style={styles.categorieContainer}
       onPress={() => {
         navigation.navigate("Editora", {
@@ -36,6 +37,7 @@ const Home = () => {
 
   const Livro = ({ item }) => (
     <TouchableOpacity
+      activeOpacity={0.5}
       style={styles.categorieContainer}
       onPress={() => {
         navigation.navigate("Livro", {
