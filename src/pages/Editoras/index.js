@@ -6,18 +6,22 @@ const SelectedEditora = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.tituloEditora}>
-        {`${route.params.selectedEditoraObj.nomeEditora}`}
-      </Text>
-      {selectedEditoraLivroData.map((livro) => (
-        <View key={livro.codigoLivro} style={styles.cardBook}>
-          <Image
-            style={styles.book}
-            source={{ uri: `data:image/png;base64,${livro.imagem}` }}
-          />
-          <Text style={styles.bookTitle}>{livro.nomeLivro}</Text>
+      <ScrollView>
+        <View style={styles.bookContainer}>
+          <Text style={styles.tituloEditora}>
+            {`${route.params.selectedEditoraObj.nomeEditora}`}
+          </Text>
+          {selectedEditoraLivroData.map((livro) => (
+            <View key={livro.codigoLivro} style={styles.cardBook}>
+              <Image
+                style={styles.book}
+                source={{ uri: `data:image/png;base64,${livro.imagem}` }}
+              />
+              <Text style={styles.bookTitle}>{livro.nomeLivro}</Text>
+            </View>
+          ))}
         </View>
-      ))}
+      </ScrollView>
     </View>
   );
 };
@@ -25,7 +29,7 @@ const SelectedEditora = ({ route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+
     backgroundColor: "pink",
   },
 
@@ -43,6 +47,10 @@ const styles = StyleSheet.create({
     height: 325,
     width: 200,
     borderRadius: 10,
+  },
+
+  bookContainer: {
+    alignItems: "center",
   },
 
   book: {

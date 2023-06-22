@@ -45,10 +45,13 @@ const Home = () => {
         });
       }}
     >
-      <Image
-        style={styles.book}
-        source={{ uri: `data:image/png;base64,${item.img}` }}
-      />
+      <View style={styles.bookContainer}>
+        <Image
+          style={styles.book}
+          source={{ uri: `data:image/png;base64,${item.img}` }}
+        />
+        <Text style={styles.bookTitle}>{item.nomeLivro}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -175,9 +178,23 @@ const styles = StyleSheet.create({
     height: 130,
   },
 
+  bookContainer: {
+    height: 300,
+    width: 200,
+    backgroundColor: "white",
+    alignItems: "center",
+    borderRadius: 10,
+  },
+
   book: {
+    marginTop: 10,
     height: 250,
     width: 170,
+  },
+
+  bookTitle: {
+    marginTop: 5,
+    fontWeight: "bold",
   },
 
   detaqueContainer: {
