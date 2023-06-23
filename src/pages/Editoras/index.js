@@ -46,8 +46,11 @@ const SelectedEditora = ({ route }) => {
             {`${route.params.selectedEditoraObj.nomeEditora}`}
           </Text>
           {selectedEditoraLivroData.map((livro) => (
-            <TouchableOpacity onPress={() => goToLivros(livro)}>
-              <View key={livro.codigoLivro} style={styles.cardBook}>
+            <TouchableOpacity
+              key={livro.codigoLivro}
+              onPress={() => goToLivros(livro)}
+            >
+              <View style={styles.cardBook}>
                 <Image
                   style={styles.book}
                   source={{ uri: `data:image/png;base64,${livro.imagem}` }}

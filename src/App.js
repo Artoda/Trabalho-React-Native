@@ -15,63 +15,25 @@ const App = () => {
   return (
     <DataProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#DA70D6",
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 25,
+            },
+          }}
+        >
           <Stack.Screen
-            options={{
-              title: "Login",
-              headerStyle: {
-                backgroundColor: "#DA70D6",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-                fontSize: 25,
-              },
-            }}
             name="Login"
             component={Login}
+            options={{ headerShown: false }}
           />
-          <Stack.Screen
-            options={{
-              title: "Livraria",
-              headerStyle: {
-                backgroundColor: "#DA70D6",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-                fontSize: 25,
-              },
-            }}
-            name="Home"
-            component={Home}
-          />
-          <Stack.Screen
-            options={{
-              title: "Livro",
-              headerStyle: {
-                backgroundColor: "#DA70D6",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-                fontSize: 25,
-              },
-            }}
-            name="Livro"
-            component={SelectedLivro}
-          />
-          <Stack.Screen
-            options={{
-              title: "Editora",
-              headerStyle: {
-                backgroundColor: "#DA70D6",
-              },
-              headerTitleStyle: {
-                fontWeight: "bold",
-                fontSize: 25,
-              },
-            }}
-            name="Editora"
-            component={SelectedEditora}
-          />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Livro" component={SelectedLivro} />
+          <Stack.Screen name="Editora" component={SelectedEditora} />
         </Stack.Navigator>
       </NavigationContainer>
     </DataProvider>
