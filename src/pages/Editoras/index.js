@@ -1,8 +1,42 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import AxiosInstance from "../../api/AxiosInstance";
+import { DataContext } from "../../context/DataContext";
+import { useContext } from "react";
 
 const SelectedEditora = ({ route }) => {
+  const navigation = useNavigation();
+  const { dadosUsuario } = useContext(DataContext);
   const selectedEditoraLivroData =
     route.params.selectedEditoraObj.listaLivrosDTO;
+
+  async function goToLivros(livro) {
+    await AxiosInstance.get(`livros/${livro.codigoLivro}`, {
+      headers: { Authorization: `Bearer ${dadosUsuario?.token}` },
+    })
+      .then((response) => {
+        const livroResponse = response.data;
+
+        const livroObj = {
+          img: livroResponse.imagem,
+          nomeLivro: livroResponse.nomeLivro,
+          autorDTO: livroResponse.autorDTO,
+          editoraDTO: livroResponse.editoraDTO,
+        };
+
+        navigation.navigate("Livro", livroObj);
+      })
+      .catch((err) => {
+        console.log("erro na requsiição de livros: " + err);
+      });
+  }
 
   return (
     <View style={styles.container}>
@@ -12,13 +46,15 @@ const SelectedEditora = ({ route }) => {
             {`${route.params.selectedEditoraObj.nomeEditora}`}
           </Text>
           {selectedEditoraLivroData.map((livro) => (
-            <View key={livro.codigoLivro} style={styles.cardBook}>
-              <Image
-                style={styles.book}
-                source={{ uri: `data:image/png;base64,${livro.imagem}` }}
-              />
-              <Text style={styles.bookTitle}>{livro.nomeLivro}</Text>
-            </View>
+            <TouchableOpacity onPress={() => goToLivros(livro)}>
+              <View key={livro.codigoLivro} style={styles.cardBook}>
+                <Image
+                  style={styles.book}
+                  source={{ uri: `data:image/png;base64,${livro.imagem}` }}
+                />
+                <Text style={styles.bookTitle}>{livro.nomeLivro}</Text>
+              </View>
+            </TouchableOpacity>
           ))}
         </View>
       </ScrollView>

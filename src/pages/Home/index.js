@@ -40,9 +40,7 @@ const Home = () => {
       activeOpacity={0.5}
       style={styles.categorieContainer}
       onPress={() => {
-        navigation.navigate("Livro", {
-          selectedLivroObj: item,
-        });
+        navigation.navigate("Livro", item);
       }}
     >
       <View style={styles.bookContainer}>
@@ -179,8 +177,8 @@ const styles = StyleSheet.create({
   },
 
   bookContainer: {
-    height: 300,
-    width: 200,
+    height: 320,
+    width: 220,
     backgroundColor: "white",
     alignItems: "center",
     borderRadius: 10,

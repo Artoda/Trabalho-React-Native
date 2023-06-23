@@ -1,7 +1,8 @@
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 
 const SelectedLivro = ({ route }) => {
-  const selectedLivroData = route.params.selectedLivroObj;
+  const selectedLivroData = route.params;
+  console.log(selectedLivroData.nomeAutor);
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -11,8 +12,8 @@ const SelectedLivro = ({ route }) => {
             source={{ uri: `data:image/png;base64,${selectedLivroData.img}` }}
           />
           <Text style={styles.bookTitle}>{selectedLivroData.nomeLivro}</Text>
-          <Text>{route.params.selectedLivroObj.autorDTO.nomeAutor}</Text>
-          <Text>{route.params.selectedLivroObj.editoraDTO.nomeEditora}</Text>
+          <Text>{selectedLivroData.autorDTO.nomeAutor}</Text>
+          <Text>{selectedLivroData.editoraDTO.nomeEditora}</Text>
         </View>
       </ScrollView>
     </View>
