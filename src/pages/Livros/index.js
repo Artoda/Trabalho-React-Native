@@ -11,9 +11,11 @@ const SelectedLivro = ({ route }) => {
             style={styles.book}
             source={{ uri: `data:image/png;base64,${selectedLivroData.img}` }}
           />
-          <Text style={styles.bookTitle}>{selectedLivroData.nomeLivro}</Text>
-          <Text>{selectedLivroData.autorDTO.nomeAutor}</Text>
-          <Text>{selectedLivroData.editoraDTO.nomeEditora}</Text>
+          <Text style={styles.bookTitle}>
+            Livro: {selectedLivroData.nomeLivro}
+          </Text>
+          <Text>Autor: {selectedLivroData.autorDTO.nomeAutor}</Text>
+          <Text>Editora: {selectedLivroData.editoraDTO.nomeEditora}</Text>
         </View>
       </ScrollView>
     </View>
